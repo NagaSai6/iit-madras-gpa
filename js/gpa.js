@@ -35,7 +35,7 @@ function validateInput(){
 
         return toastr["error"]("Don't you know how to type a number properly ?", "WTF");
     }
-    if(inputValue>7){
+    if(inputValue>8){
         document.getElementById('inputCoursesNumber').value = null;
         toastr.options = {
             "closeButton": true,
@@ -53,7 +53,7 @@ function validateInput(){
             "showMethod": "fadeIn",
             "hideMethod": "fadeOut"
           } ;
-          return toastr["error"]("Are you studying in IITM ? HowTF you can do more than 10 courses in one semester ?", "LOL");
+          return toastr["error"]("Are you studying in IITM ? HowTF you can do " + " "+ inputValue+ " courses in one semester ?", "LOL");
     }
     if(inputValue==0 || inputValue==''){
         document.getElementById('inputCoursesNumber').value = null;
@@ -178,7 +178,7 @@ function generateInputs(inputValue){
             "preventDuplicates": false,
             "showDuration": "300",
             "hideDuration": "1000",
-            "timeOut": "5000",
+            "timeOut": "4000",
             "extendedTimeOut": "1000",
             "showEasing": "swing",
             "hideEasing": "linear",
@@ -261,11 +261,34 @@ function generateInputs(inputValue){
    for (let e=1;e<=lengthOfInputData;e++){
        let courseId = "course"+e;
        let gpa_value = document.getElementById(courseId).value ;
+       
        gpa.push(gpa_value);
        variable=""
        gpa_value=""
    }
   var sum = 0;
+  for (let count=0;count<gpa.length;count++){
+      if(isNaN(parseInt(gpa[count]))){
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "4000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          }
+          return toastr["error"]("You have not chosen grade for some course(s)", "IITian Lol") ;
+
+      }
+  }
   for (let f=0;f<credits.length;f++){
        sum += credits[f]*parseInt(gpa[f])
   }
