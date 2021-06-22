@@ -1,0 +1,34 @@
+ grades = [
+    {
+        "grade":"S",
+        "value":10
+    },
+    {
+        "grade":"A",
+        "value":9
+    },
+    {
+        "grade":"B",
+        "value":8
+    },
+    {
+        "grade":"C",
+        "value":7
+    },
+    {
+        "grade":"D",
+        "value":6
+    },
+    {
+        "grade":"E",
+        "value":4
+    },
+    {
+        "grade":"U",
+        "value":0
+    },
+    {
+        "grade":"W",
+        "value":0
+    }
+]
